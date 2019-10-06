@@ -9,11 +9,24 @@ const initialState = {
 export const cryptosReducer = (state = initialState, action) => {
   switch (action.type) {
     case CryptosTypes.FETCH_CRYPTOS_REQUEST:
-      return { ...state };
+      return {
+        ...state,
+        isFetching: true,
+        error: null
+      };
     case CryptosTypes.FETCH_CRYPTOS_SUCCESS:
-      return { ...state };
+      return {
+        ...state,
+        error: null,
+        isFetching: false,
+        cryptos: action.payload
+      };
     case CryptosTypes.FETCH_CRYPTOS_FAIL:
-      return { ...state };
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
     default:
       return state;
   }
