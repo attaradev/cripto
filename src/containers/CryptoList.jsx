@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import Animation from "react-useanimations";
 import {
   selectLoading,
-  selectError,
   selectCryptos
 } from "../redux/cryptos/cryptos.selectors";
 import { fetchCryptosRequest } from "../redux/cryptos/cryptos.actions";
@@ -43,8 +42,7 @@ const CryptoList = ({ cryptos, fetchCryptos, isLoading }) => {
 
 const mapStateToProps = createStructuredSelector({
   isLoading: selectLoading,
-  cryptos: selectCryptos,
-  error: selectError
+  cryptos: selectCryptos
 });
 
 const mapDispatchToProps = dispatch => ({
