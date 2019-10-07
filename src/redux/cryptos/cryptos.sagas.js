@@ -41,7 +41,7 @@ function* fetchCryptosAsync({ payload }) {
     const total = start + limit;
     const next = total >= 100 ? null : total;
     const temp = start - limit;
-    const previous = temp > 1 ? temp : null;
+    const previous = temp >= 1 ? temp : null;
 
     yield put(fetchCryptosSuccess({ previous, next, cryptos: formatedData }));
   } catch (error) {
