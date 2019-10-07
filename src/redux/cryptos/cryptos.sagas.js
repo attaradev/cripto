@@ -9,7 +9,7 @@ import {
 
 const axios = Axios.create({
   baseURL:
-    "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+    "https://cors-anywhere.herokuapp.com/https://pro-api.coinmarketcap.com/v1",
   headers: {
     "Content-Type": "application/json",
     "X-CMC_PRO_API_KEY": "0d8aa8df-6add-488e-9721-230649c9bc23"
@@ -19,7 +19,9 @@ const axios = Axios.create({
 function* fetchCryptosAsync({ payload }) {
   const { start, limit } = payload;
   try {
-    const { data } = yield axios.get(`/?start=${start}&limit=${limit}`);
+    const { data } = yield axios.get(
+      `/cryptocurrency/listings/latest?start=${start}&limit=${limit}`
+    );
     const formatedData = yield data.data.map(coin => {
       const {
         id,

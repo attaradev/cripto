@@ -7,7 +7,7 @@ export const selectError = createSelector(
   state => state.error
 );
 
-export const selectCryptors = createSelector(
+export const selectCryptos = createSelector(
   [selectState],
   state => state.cryptos
 );

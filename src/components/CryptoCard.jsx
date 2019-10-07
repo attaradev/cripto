@@ -23,9 +23,9 @@ const StyledCard = styled.div`
   }
 `;
 
-const CoinCard = () => (
+const CryptoCard = ({ crypto }) => (
   <StyledCard>
-    <h2>Coin name</h2>
+    <h2>{crypto.name}</h2>
     <p>Price</p>
     <h4>Percentage Changes</h4>
     <div className="grid">
@@ -45,4 +45,4 @@ const CoinCard = () => (
   </StyledCard>
 );
 
-export default CoinCard;
+export default CryptoCard;
