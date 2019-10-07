@@ -3,6 +3,8 @@ import { CryptosTypes } from "./cryptos.actions";
 const initialState = {
   isFetching: false,
   error: null,
+  previous: null,
+  next: null,
   cryptos: []
 };
 
@@ -19,7 +21,7 @@ export const cryptosReducer = (state = initialState, action) => {
         ...state,
         error: null,
         isFetching: false,
-        cryptos: action.payload
+        ...action.payload
       };
     case CryptosTypes.FETCH_CRYPTOS_FAIL:
       return {
