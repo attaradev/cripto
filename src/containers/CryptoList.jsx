@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
+import Animation from "react-useanimations";
 import {
   selectLoading,
   selectError,
@@ -16,12 +17,22 @@ const StyledGrid = styled.div`
   grid-gap: 2rem;
 `;
 
-const CryptoList = ({ cryptos, fetchCryptos }) => {
+const StyledContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CryptoList = ({ cryptos, fetchCryptos, isLoading }) => {
   React.useEffect(() => {
     fetchCryptos();
   }, []);
 
-  return (
+  return isLoading ? (
+    <StyledContainer>
+      <Animation animationKey="loading2" size={600} style={{ padding: 50 }} />
+    </StyledContainer>
+  ) : (
     <StyledGrid>
       {cryptos.map(crypto => (
         <CryptoCard key={crypto.id} crypto={crypto} />
