@@ -48,7 +48,7 @@ const StyledCard = styled.div`
 
 const StyledPercentageChange = styled.span`
   padding: 0.4rem 0.1rem;
-  color: ${props => (props.value > 0 ? "green" : "red")};
+  color: ${props => (props.children > 0 ? "green" : "red")};
 `;
 
 const CryptoCard = ({ crypto }) => (
@@ -63,19 +63,19 @@ const CryptoCard = ({ crypto }) => (
     <div className="grid">
       <div>
         <span className="title">1 hour</span>
-        <StyledPercentageChange value={crypto.percent_change_1h}>
+        <StyledPercentageChange>
           {crypto.percent_change_1h}
         </StyledPercentageChange>
       </div>
       <div>
         <span className="title">24 hours</span>
-        <StyledPercentageChange value={crypto.percent_change_24h}>
+        <StyledPercentageChange>
           {crypto.percent_change_24h}
         </StyledPercentageChange>
       </div>
       <div>
         <span className="title">7 days</span>
-        <StyledPercentageChange value={crypto.percent_change_7d}>
+        <StyledPercentageChange>
           {crypto.percent_change_7d}
         </StyledPercentageChange>
       </div>
