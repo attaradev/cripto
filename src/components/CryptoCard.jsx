@@ -7,12 +7,17 @@ const StyledCard = styled.div`
   align-items: center;
   justify-content: center;
   border: 2px solid rgba(0, 0, 0, 0.4);
-  padding: 1rem 0;
+  padding: 1rem 0 0;
+  text-align: center;
 
   p {
     span {
       font-weight: bolder;
     }
+  }
+
+  h2 {
+    padding-bottom: 0.5rem;
   }
 
   h4 {
